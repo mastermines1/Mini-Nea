@@ -11,22 +11,8 @@ namespace NEA_mini
         }
 
 
-
-        private void tmrFallTime_Tick(object sender, EventArgs e)
-        {
-            if (picHudson.Top < 400)//dont fall off screen
-            {
-                picHudson.Top += 1;
-
-            }
-            if (picHudson.Top < 75)
-            {//victory?
-
-            }
-        }
-
         private void tmrSwerv_Tick(object sender, EventArgs e)
-          {
+        {
             Random random = new Random();
             tmrSwerv.Interval = random.Next(4000, 6000);
             tmrSwerving.Enabled = true;
@@ -62,6 +48,19 @@ namespace NEA_mini
             if (e.KeyChar == 32)
             {
                 picHudson.Top -= 20;
+            }
+        }
+
+        private void tmrFall_Tick(object sender, EventArgs e)
+        {
+            if (picHudson.Top < 400)//dont fall off screen
+            {
+                picHudson.Top += 1;
+
+            }
+            if (picHudson.Top < 75)
+            {//victory?
+
             }
         }
     }
