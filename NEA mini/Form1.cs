@@ -43,13 +43,6 @@ namespace NEA_mini
 
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                picHudson.Top -= 20;
-            }
-        }
 
         private void tmrFall_Tick(object sender, EventArgs e)
         {
@@ -61,6 +54,14 @@ namespace NEA_mini
             if (picHudson.Top < 75)
             {//victory?
 
+            }
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 32)
+            {
+                picHudson.Top -= 20;
             }
         }
     }
