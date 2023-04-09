@@ -347,6 +347,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 0);
             ClientSize = new Size(982, 478);
+            Controls.Add(picHudson);
             Controls.Add(pictureBox23);
             Controls.Add(pictureBox12);
             Controls.Add(pictureBox22);
@@ -371,11 +372,10 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(picWakeyWines);
-            Controls.Add(picHudson);
             Controls.Add(picRoadBack);
             Name = "Form1";
             ShowIcon = false;
-            KeyPress += Form1_KeyPress;
+            KeyUp += Form1_KeyUp;
             ((System.ComponentModel.ISupportInitialize)picHudson).EndInit();
             ((System.ComponentModel.ISupportInitialize)picRoadBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)picWakeyWines).EndInit();
