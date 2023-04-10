@@ -3761,7 +3761,7 @@
   <data name="picWakeyWines.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAf8AAABVCAIAAADIY3rVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF58vAWU3jbePSyz/cBgqCkzM2yZKZwUwtQU06ZhmCTDTA8zwzAzZSYT
+        vAAADrwBlbxySQAA/7JJREFUeF58vAWU3jbePSyz/cBgqCkzM2yZKZwUwtQU06ZhmCTDTA8zwzAzZSYT
         ZmygkDLDtt3ClpbyXdnTabb7/r9z7tGR9diyJEv33p/sGbJiwby7k5IfkXRP6IwzZf1cQb+A1T1DlOeI
         8iLRvUT0zxPdIka3gNfPEw2zZQpknhGNzwnG53njs7zuOUEBnhd1L4i655HBIS+/LOleFpTFyHDiK6y4
         hJOW8uJSWqJ7iTcgBV7hZZQv4QXgVUFcIoiLBeElUXheEJ8TxUWSuFDUIC8SabW4cAlvXMoZl7PG5YwO
@@ -5317,7 +5317,7 @@
   <data name="picWakeyWines.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAf8AAABVCAIAAADIY3rVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF58vAWU3jbePSyz/cBgqCkzM2yZKZwUwtQU06ZhmCTDTA8zwzAzZSYT
+        vAAADrwBlbxySQAA/7JJREFUeF58vAWU3jbePSyz/cBgqCkzM2yZKZwUwtQU06ZhmCTDTA8zwzAzZSYT
         ZmygkDLDtt3ClpbyXdnTabb7/r9z7tGR9diyJEv33p/sGbJiwby7k5IfkXRP6IwzZf1cQb+A1T1DlOeI
         8iLRvUT0zxPdIka3gNfPEw2zZQpknhGNzwnG53njs7zuOUEBnhd1L4i655HBIS+/LOleFpTFyHDiK6y4
         hJOW8uJSWqJ7iTcgBV7hZZQv4QXgVUFcIoiLBeElUXheEJ8TxUWSuFDUIC8SabW4cAlvXMoZl7PG5YwO
@@ -6870,6 +6870,12 @@
         G2yxYhIEswAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="tmrEnemySpawn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 17</value>
+  </metadata>
+  <metadata name="tmrCarMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>472, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>123</value>
   </metadata>
