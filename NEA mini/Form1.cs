@@ -6,7 +6,6 @@ namespace NEA_mini
     {
 
         public int swerveCountDown = 100;
-        //public int upCountdown = 100;
         public Form1()
         {
             InitializeComponent();
@@ -71,17 +70,15 @@ namespace NEA_mini
         {
 
 
-
-            car Car1 = new car(false,true);
-            this.Controls.Add(Car1.picCar);
-            Car1.picCar.BringToFront();
         }
 
         private void tmrEnemySpawn_Tick(object sender, EventArgs e)
         {
 
-
-
+            car Car1 = new car(false, true);
+            this.Controls.Add(Car1.picCar);
+            Car1.picCar.BringToFront();
+            
         }
 
         private void tmrCarMove_Tick(object sender, EventArgs e)
@@ -93,17 +90,17 @@ namespace NEA_mini
     {
         public bool travelsLeft { get; }
         public PictureBox picCar { get; }
-        public System.Windows.Forms.Timer Timer { get; }
+        public System.Windows.Forms.Timer tmr { get; }
         public bool fastLane { get; }
 
-        public car(bool left,bool fast)
+        public car(bool left, bool fast)
         {
 
             this.travelsLeft = left;
             this.fastLane = fast;
-            if(left)
+            if (left)
             {
-               picCar = new PictureBox
+                picCar = new PictureBox
                 {
                     Name = "picCar",
                     Size = new Size(100, 50),
@@ -125,9 +122,9 @@ namespace NEA_mini
                     BackColor = Color.Black,
                 };
             }
-            if(fast)
+            if (fast)
             {
-                this.Timer = new System.Windows.Forms.Timer
+                this.tmr = new System.Windows.Forms.Timer
                 {
                     Interval = 10,
                     Enabled = true,
@@ -135,13 +132,17 @@ namespace NEA_mini
             }
             else
             {
-                this.Timer = new System.Windows.Forms.Timer
+                this.tmr = new System.Windows.Forms.Timer
                 {
                     Interval = 20,
                     Enabled = true,
                 };
-            }    
-
+            }
+            this.tmr.Tick += new EventHandler(tmr_tick);
+        }
+        private static void tmr_tick(Object sender, EventArgs e)
+        {
+            
         }
     }
 }
