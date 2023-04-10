@@ -59,8 +59,9 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
-            this.tmrEnemySpawn = new System.Windows.Forms.Timer(this.components);
-            this.tmrCarMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemySpawnFast = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemySpawnSlow = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picHudson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRoadBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWakeyWines)).BeginInit();
@@ -87,14 +88,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.SuspendLayout();
             // 
             // picHudson
             // 
             this.picHudson.Image = ((System.Drawing.Image)(resources.GetObject("picHudson.Image")));
-            this.picHudson.Location = new System.Drawing.Point(469, 375);
+            this.picHudson.Location = new System.Drawing.Point(481, 420);
             this.picHudson.Name = "picHudson";
-            this.picHudson.Size = new System.Drawing.Size(45, 79);
+            this.picHudson.Size = new System.Drawing.Size(29, 44);
             this.picHudson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHudson.TabIndex = 0;
             this.picHudson.TabStop = false;
@@ -104,7 +106,7 @@
             this.picRoadBack.BackColor = System.Drawing.Color.Black;
             this.picRoadBack.Location = new System.Drawing.Point(-4, 61);
             this.picRoadBack.Name = "picRoadBack";
-            this.picRoadBack.Size = new System.Drawing.Size(997, 308);
+            this.picRoadBack.Size = new System.Drawing.Size(997, 353);
             this.picRoadBack.TabIndex = 1;
             this.picRoadBack.TabStop = false;
             // 
@@ -141,14 +143,14 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(-4, 202);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(989, 22);
+            this.pictureBox1.Size = new System.Drawing.Size(989, 67);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 291);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 336);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(55, 10);
             this.pictureBox2.TabIndex = 3;
@@ -157,7 +159,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(91, 291);
+            this.pictureBox3.Location = new System.Drawing.Point(91, 336);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(55, 10);
             this.pictureBox3.TabIndex = 3;
@@ -166,7 +168,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Location = new System.Drawing.Point(182, 291);
+            this.pictureBox4.Location = new System.Drawing.Point(182, 336);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(55, 10);
             this.pictureBox4.TabIndex = 3;
@@ -175,7 +177,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Location = new System.Drawing.Point(273, 291);
+            this.pictureBox5.Location = new System.Drawing.Point(273, 336);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(55, 10);
             this.pictureBox5.TabIndex = 3;
@@ -184,7 +186,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
-            this.pictureBox6.Location = new System.Drawing.Point(364, 291);
+            this.pictureBox6.Location = new System.Drawing.Point(364, 336);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(55, 10);
             this.pictureBox6.TabIndex = 3;
@@ -193,7 +195,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Location = new System.Drawing.Point(455, 291);
+            this.pictureBox7.Location = new System.Drawing.Point(455, 336);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(55, 10);
             this.pictureBox7.TabIndex = 3;
@@ -202,7 +204,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.Location = new System.Drawing.Point(546, 291);
+            this.pictureBox8.Location = new System.Drawing.Point(546, 336);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(55, 10);
             this.pictureBox8.TabIndex = 3;
@@ -211,7 +213,7 @@
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
-            this.pictureBox9.Location = new System.Drawing.Point(637, 291);
+            this.pictureBox9.Location = new System.Drawing.Point(637, 336);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(55, 10);
             this.pictureBox9.TabIndex = 3;
@@ -220,7 +222,7 @@
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.White;
-            this.pictureBox10.Location = new System.Drawing.Point(728, 291);
+            this.pictureBox10.Location = new System.Drawing.Point(728, 336);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(55, 10);
             this.pictureBox10.TabIndex = 3;
@@ -229,7 +231,7 @@
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
-            this.pictureBox11.Location = new System.Drawing.Point(819, 291);
+            this.pictureBox11.Location = new System.Drawing.Point(819, 336);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(55, 10);
             this.pictureBox11.TabIndex = 3;
@@ -238,7 +240,7 @@
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Location = new System.Drawing.Point(910, 291);
+            this.pictureBox12.Location = new System.Drawing.Point(910, 336);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(55, 10);
             this.pictureBox12.TabIndex = 3;
@@ -343,17 +345,25 @@
             this.pictureBox23.TabIndex = 3;
             this.pictureBox23.TabStop = false;
             // 
-            // tmrEnemySpawn
+            // tmrEnemySpawnFast
             // 
-            this.tmrEnemySpawn.Enabled = true;
-            this.tmrEnemySpawn.Interval = 1000;
-            this.tmrEnemySpawn.Tick += new System.EventHandler(this.tmrEnemySpawn_Tick);
+            this.tmrEnemySpawnFast.Enabled = true;
+            this.tmrEnemySpawnFast.Interval = 1;
+            this.tmrEnemySpawnFast.Tick += new System.EventHandler(this.tmrEnemySpawnFast_Tick);
             // 
-            // tmrCarMove
+            // tmrEnemySpawnSlow
             // 
-            this.tmrCarMove.Enabled = true;
-            this.tmrCarMove.Interval = 10;
-            this.tmrCarMove.Tick += new System.EventHandler(this.tmrCarMove_Tick);
+            this.tmrEnemySpawnSlow.Enabled = true;
+            this.tmrEnemySpawnSlow.Interval = 1;
+            this.tmrEnemySpawnSlow.Tick += new System.EventHandler(this.tmrEnemySpawnSlow_Tick);
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Location = new System.Drawing.Point(-1, 221);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(982, 31);
+            this.pictureBox24.TabIndex = 4;
+            this.pictureBox24.TabStop = false;
             // 
             // Form1
             // 
@@ -363,6 +373,7 @@
             this.ClientSize = new System.Drawing.Size(982, 478);
             this.Controls.Add(this.picWakeyWines);
             this.Controls.Add(this.picHudson);
+            this.Controls.Add(this.pictureBox24);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox22);
@@ -417,6 +428,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,7 +464,8 @@
         private PictureBox pictureBox21;
         private PictureBox pictureBox22;
         private PictureBox pictureBox23;
-        private System.Windows.Forms.Timer tmrEnemySpawn;
-        private System.Windows.Forms.Timer tmrCarMove;
+        private System.Windows.Forms.Timer tmrEnemySpawnFast;
+        private System.Windows.Forms.Timer tmrEnemySpawnSlow;
+        private PictureBox pictureBox24;
     }
 }

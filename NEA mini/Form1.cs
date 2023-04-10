@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace NEA_mini
 {
     public partial class Form1 : Form
@@ -27,11 +25,11 @@ namespace NEA_mini
                 Random random = new Random();
                 if (random.NextInt64(-1, 1) == 0)
                 {
-                    picHudson.Location = new Point(picHudson.Location.X + 1, picHudson.Location.Y - 1);
+                    picHudson.Location = new Point(picHudson.Location.X + 1, picHudson.Location.Y);
                 }
                 else
                 {
-                    picHudson.Location = new Point(picHudson.Location.X - 1, picHudson.Location.Y - 1);
+                    picHudson.Location = new Point(picHudson.Location.X - 1, picHudson.Location.Y);
                 }
                 swerveCountDown -= 1;
             }
@@ -47,7 +45,7 @@ namespace NEA_mini
 
         private void tmrFall_Tick(object sender, EventArgs e)
         {
-            if (picHudson.Top < 400)//dont fall off screen
+            if (picHudson.Top < 420)//dont fall off screen
             {
                 picHudson.Top += 1;
 
@@ -62,7 +60,7 @@ namespace NEA_mini
         {
             if (e.KeyValue == 32)
             {
-                picHudson.Top -= 20;
+                picHudson.Top -= 40;
             }
         }
 
@@ -72,18 +70,23 @@ namespace NEA_mini
 
         }
 
-        private void tmrEnemySpawn_Tick(object sender, EventArgs e)
-        {
 
+        private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
+        { 
+            tmrEnemySpawnFast.Interval = 1000;
             car Car1 = new car(false, true);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
-            
+
         }
 
-        private void tmrCarMove_Tick(object sender, EventArgs e)
+        private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
         {
-            
+            tmrEnemySpawnSlow.Interval = 3000;
+            car Car2 = new car(false, false);
+            this.Controls.Add(Car2.picCar);
+            Car2.picCar.BringToFront();
+
         }
     }
     public class car
@@ -98,40 +101,68 @@ namespace NEA_mini
 
             this.travelsLeft = left;
             this.fastLane = fast;
-            if (left)
+            if (left &&fast)
             {
-                picCar = new PictureBox
+                this.picCar = new PictureBox
                 {
                     Name = "picCar",
                     Size = new Size(100, 50),
-                    Location = new Point(-100, 230),
+                    Location = new Point(-100, 230),//TO-DO new location for going left in fast lane
                     ImageLocation = "Car top down.png",
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Black,
                 };
-            }
-            else
-            {
-                picCar = new PictureBox
-                {
-                    Name = "picCar",
-                    Size = new Size(100, 50),
-                    Location = new Point(00, 230),
-                    ImageLocation = "Car top down.png",
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    BackColor = Color.Black,
-                };
-            }
-            if (fast)
-            {
                 this.tmr = new System.Windows.Forms.Timer
                 {
                     Interval = 10,
                     Enabled = true,
                 };
             }
-            else
+            else if(left && fast == false)
             {
+                this.picCar = new PictureBox
+                {
+                    Name = "picCar",
+                    Size = new Size(100, 50),
+                    Location = new Point(-100, 230),//TO-DO new location for going left in slow lane
+                    ImageLocation = "Car top down.png",
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Black,
+                };
+                this.tmr = new System.Windows.Forms.Timer
+                {
+                    Interval = 20,
+                    Enabled = true,
+                };
+            }
+            else if(left == false && fast)
+            {
+                this.picCar = new PictureBox
+                {
+                    Name = "picCar",
+                    Size = new Size(100, 50),
+                    Location = new Point(-100, 275),
+                    ImageLocation = "Car top down.png",
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Black,
+                };
+                this.tmr = new System.Windows.Forms.Timer
+                {
+                    Interval = 10,
+                    Enabled = true,
+                };
+            }//done
+            else if(left == false && fast == false)
+            {
+                this.picCar = new PictureBox
+                {
+                    Name = "picCar",
+                    Size = new Size(100, 50),
+                    Location = new Point(-100, 355),
+                    ImageLocation = "Car top down.png",
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Black,
+                };
                 this.tmr = new System.Windows.Forms.Timer
                 {
                     Interval = 20,
@@ -140,9 +171,16 @@ namespace NEA_mini
             }
             this.tmr.Tick += new EventHandler(tmr_tick);
         }
-        private static void tmr_tick(Object sender, EventArgs e)
+        private void tmr_tick(Object sender, EventArgs e)
         {
-            
+            if (this.fastLane)
+            {
+            picCar.Left += 10;
+            }
+            else
+            {
+                picCar.Left += 5;
+            }
         }
     }
 }
