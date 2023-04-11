@@ -23,7 +23,8 @@ namespace NEA_mini
             if (swerveCountDown > 0)
             {
                 Random random = new Random();
-                if (random.NextInt64(-1, 1) == 0)
+                int x = random.Next(2);
+                if (x==1)
                 {
                     picHudson.Location = new Point(picHudson.Location.X + 1, picHudson.Location.Y);
                 }
@@ -77,13 +78,20 @@ namespace NEA_mini
             car Car1 = new car(false, true);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
-
+            tmrEnemySpawnFast.Interval = 1000;
+            car Car2 = new car(true, true);
+            this.Controls.Add(Car2.picCar);
+            Car2.picCar.BringToFront();
         }
 
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnSlow.Interval = 3000;
-            car Car2 = new car(false, false);
+            car Car1 = new car(false, false);
+            this.Controls.Add(Car1.picCar);
+            Car1.picCar.BringToFront();
+            tmrEnemySpawnSlow.Interval = 3000;
+            car Car2 = new car(true, false);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
@@ -95,7 +103,6 @@ namespace NEA_mini
         public PictureBox picCar { get; }
         public System.Windows.Forms.Timer tmr { get; }
         public bool fastLane { get; }
-
         public car(bool left, bool fast)
         {
 
@@ -107,7 +114,7 @@ namespace NEA_mini
                 {
                     Name = "picCar",
                     Size = new Size(100, 50),
-                    Location = new Point(-100, 230),//TO-DO new location for going left in fast lane
+                    Location = new Point(900, 140),//TO-DO new location for going left in fast lane
                     ImageLocation = "Car top down.png",
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Black,
@@ -124,7 +131,7 @@ namespace NEA_mini
                 {
                     Name = "picCar",
                     Size = new Size(100, 50),
-                    Location = new Point(-100, 230),//TO-DO new location for going left in slow lane
+                    Location = new Point(900, 65),
                     ImageLocation = "Car top down.png",
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Black,
@@ -173,13 +180,26 @@ namespace NEA_mini
         }
         private void tmr_tick(Object sender, EventArgs e)
         {
-            if (this.fastLane)
+            if (this.fastLane&&this.travelsLeft==false)
             {
             picCar.Left += 10;
             }
-            else
+            else if (this.fastLane == false && this.travelsLeft == false)
             {
                 picCar.Left += 5;
+            }
+            else if (this.fastLane && this.travelsLeft == true)
+            {
+                picCar.Left -= 10;
+            }
+            else if (this.fastLane == false && this.travelsLeft == true)
+            {
+                picCar.Left -= 5;
+            }
+            if (this.picCar.Location.X > 900)
+            {
+                this.picCar.Dispose();
+                this.tmr.Dispose();
             }
         }
     }
