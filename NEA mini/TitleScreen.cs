@@ -27,6 +27,11 @@ namespace NEA_mini
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
 
         }
     }

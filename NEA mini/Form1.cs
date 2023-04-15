@@ -82,6 +82,20 @@ namespace NEA_mini
             car Car2 = new car(true, true);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
+
+            Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
+            Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
+            picHudson.SetBounds(picHudson.Location.X,picHudson.Location.Y,picHudson.Width,picHudson.Height);
+
+            if(Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
+            {
+                hudsonHit();
+            }
+
+        }
+        static void hudsonHit()
+        {
+            
         }
 
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
@@ -95,6 +109,14 @@ namespace NEA_mini
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
+            Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
+            Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
+            picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
+
+            if (Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
+            {
+                hudsonHit();
+            }
         }
     }
     public class car
@@ -196,11 +218,15 @@ namespace NEA_mini
             {
                 picCar.Left -= 5;
             }
-            if (this.picCar.Location.X > 900)
+            if (this.picCar.Location.X > 900 || (this.picCar.Location.X < -100))
             {
                 this.picCar.Dispose();
                 this.tmr.Dispose();
             }
+            
+
+
         }
+
     }
 }
