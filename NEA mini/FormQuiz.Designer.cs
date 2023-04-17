@@ -3,6 +3,7 @@
     partial class FormQuiz
     {
         public int lvl;
+        public int qAnswered;
 
         /// <summary>
         /// Required designer variable.
@@ -28,8 +29,9 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(int levl)
+        private void InitializeComponent(int levl, int qAnswered)
         {
+
             this.SuspendLayout();
             // 
             // FormQuiz
