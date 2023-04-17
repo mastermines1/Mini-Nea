@@ -24,7 +24,7 @@ namespace NEA_mini
             {
                 Random random = new Random();
                 int x = random.Next(2);
-                if (x==1)
+                if (x == 1)
                 {
                     picHudson.Location = new Point(picHudson.Location.X + 1, picHudson.Location.Y);
                 }
@@ -53,7 +53,7 @@ namespace NEA_mini
             }
             if (picHudson.Top < 75)
             {//victory?
-                Quiz frmQuiz = new Quiz();
+                Quiz frmQuiz = new Quiz(1);
                 frmQuiz.Show();
                 this.Close();
                 //Environment.Exit(0);
@@ -76,7 +76,7 @@ namespace NEA_mini
 
 
         private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
-        { 
+        {
             tmrEnemySpawnFast.Interval = 1000;
             car Car1 = new car(false, true);
             this.Controls.Add(Car1.picCar);
@@ -88,9 +88,9 @@ namespace NEA_mini
 
             Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
             Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
-            picHudson.SetBounds(picHudson.Location.X,picHudson.Location.Y,picHudson.Width,picHudson.Height);
+            picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
 
-            if(Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
+            if (Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
             {
                 hudsonHit();
             }
@@ -98,7 +98,7 @@ namespace NEA_mini
         }
         static void hudsonHit()
         {
-            
+
         }
 
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
@@ -121,6 +121,15 @@ namespace NEA_mini
                 hudsonHit();
             }
         }
+
+
+
+        private void picReturn_Click(object sender, EventArgs e)
+        {
+            TitleScreen frmTitle = new TitleScreen();
+            frmTitle.Show();
+            this.Hide();
+        }
     }
     public class car
     {
@@ -133,7 +142,7 @@ namespace NEA_mini
 
             this.travelsLeft = left;
             this.fastLane = fast;
-            if (left &&fast)
+            if (left && fast)
             {
                 this.picCar = new PictureBox
                 {
@@ -150,7 +159,7 @@ namespace NEA_mini
                     Enabled = true,
                 };
             }
-            else if(left && fast == false)
+            else if (left && fast == false)
             {
                 this.picCar = new PictureBox
                 {
@@ -167,7 +176,7 @@ namespace NEA_mini
                     Enabled = true,
                 };
             }
-            else if(left == false && fast)
+            else if (left == false && fast)
             {
                 this.picCar = new PictureBox
                 {
@@ -184,7 +193,7 @@ namespace NEA_mini
                     Enabled = true,
                 };
             }//done
-            else if(left == false && fast == false)
+            else if (left == false && fast == false)
             {
                 this.picCar = new PictureBox
                 {
@@ -205,9 +214,9 @@ namespace NEA_mini
         }
         private void tmr_tick(Object sender, EventArgs e)
         {
-            if (this.fastLane&&this.travelsLeft==false)
+            if (this.fastLane && this.travelsLeft == false)
             {
-            picCar.Left += 10;
+                picCar.Left += 10;
             }
             else if (this.fastLane == false && this.travelsLeft == false)
             {
@@ -226,7 +235,7 @@ namespace NEA_mini
                 this.picCar.Dispose();
                 this.tmr.Dispose();
             }
-            
+
 
 
         }
