@@ -2,6 +2,7 @@
 {
     partial class Quiz
     {
+        public int lvl;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,7 +27,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(int level)
         {
             SuspendLayout();
             // 
@@ -37,7 +38,9 @@
             ClientSize = new Size(800, 450);
             Name = "Quiz";
             ShowIcon = false;
+            Load += Quiz_Load;
             ResumeLayout(false);
+            this.lvl = level;
         }
 
         #endregion
