@@ -12,9 +12,33 @@ namespace NEA_mini
 {
     public partial class Quiz : Form
     {
-        public Quiz()
+        public Quiz(int lvl)
         {
-            InitializeComponent();
+            InitializeComponent(lvl);  
+        }
+
+        private void Quiz_Load(object sender, EventArgs e)
+        {
+            switch (lvl)
+            {
+                case 0:
+
+
+                    break;
+
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+            }
+            
+            
+
+
+
         }
     }
 }

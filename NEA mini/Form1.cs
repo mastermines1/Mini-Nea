@@ -46,14 +46,17 @@ namespace NEA_mini
 
         private void tmrFall_Tick(object sender, EventArgs e)
         {
-            if (picHudson.Top < 420)//dont fall off screen
+            if (picHudson.Top < 420 && picHudson.Top != 210)//dont fall off screen
             {
                 picHudson.Top += 1;
 
             }
             if (picHudson.Top < 75)
             {//victory?
-
+                Quiz frmQuiz = new Quiz();
+                frmQuiz.Show();
+                this.Close();
+                //Environment.Exit(0);
             }
         }
 

@@ -21,8 +21,9 @@ namespace NEA_mini
         {
             Form1 frmMain = new Form1();
 
-            this.Hide();
             frmMain.Show();
+            this.Hide();
+            
         }
 
         private void btnHighScores_Click(object sender, EventArgs e)
