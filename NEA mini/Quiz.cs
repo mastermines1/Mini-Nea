@@ -14,31 +14,39 @@ namespace NEA_mini
     {
         public Quiz(int lvl)
         {
-            InitializeComponent(lvl);  
+            InitializeComponent(lvl);
         }
 
         private void Quiz_Load(object sender, EventArgs e)
         {
-            switch (lvl)
-            {
-                case 0:
 
 
-                    break;
 
-                case 1:
-
-                    break;
-
-                case 2:
-
-                    break;
-            }
-            
-            
 
 
 
         }
     }
+    public class Questions
+    {
+
+
+        public Questions(int level) 
+        {
+            switch (level)
+            {
+                case 0:
+
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+
+
+        }
+    }
+
+   
 }
