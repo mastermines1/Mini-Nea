@@ -2,6 +2,7 @@
 {
     partial class TitleScreen
     {
+       
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,6 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TitleScreen));
             this.picTitle = new System.Windows.Forms.PictureBox();
             this.btnPlay = new System.Windows.Forms.Button();
@@ -91,6 +94,8 @@
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.picTitle)).EndInit();
             this.ResumeLayout(false);
+
+
 
         }
 
