@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Collections.Generic;
-
-namespace NEA_mini
+﻿namespace NEA_mini
 {
     public partial class FormQuiz : Form
     {
-        public  FormQuiz(int lvl,int qAnswered)
+        public FormQuiz(int lvl, int qAnswered)
         {
-            
-            InitializeComponent(lvl,qAnswered);
+
+            InitializeComponent(lvl, qAnswered);
         }
 
         private void FormQuiz_Load(object sender, EventArgs e)
         {
-            if (this.qAnswered < 3)
+           
+             if (this.qAnswered < 3)
             {
                 this.Size = new Size(500, 400); this.MaximumSize = new Size(500, 400); this.MinimumSize = new Size(500, 400);
                 Question q1 = new Question(lvl, qAnswered);
@@ -30,14 +20,17 @@ namespace NEA_mini
                 this.Controls.Add(q1.answer1);
                 this.Controls.Add(q1.answer2);
                 this.Controls.Add(q1.answer3);
+               
             }
             else
             {
+                
                 Form1 frm1 = new Form1();
                 this.Hide();
                 frm1.Show();
             }
         }
+
 
     }
     public class Question
@@ -49,43 +42,43 @@ namespace NEA_mini
         public Button answer3;
         int lvl;
         int qAnswered;
-        public Question(int level,int qAnswered)
+        public Question(int level, int qAnswered)
         {
             this.lvl = level;
             Random rnd = new Random();
             Point[] pointsList = { };
-                    this.lblQuestion = new Label
-                    {
-                        TextAlign = ContentAlignment.TopCenter,
-                        Width = 500,
-                        Top = 50,
-                        Left = 0,
-                    };
-                    this.correctAnswer = new Button
-                    { 
-                        Width = 60,
-                        Height = 60,
-                        Location = new Point(135,110),
-                        
-                    };
-                    this.answer1 = new Button
-                    { 
-                        Width = 60,
-                        Height = 60,
-                        Location = new Point(320,110),
-                    };
-                    this.answer2 = new Button
-                    { 
-                        Width = 60,
-                        Height = 60,
-                        Location = new Point(135,200),
-                    };
-                    this.answer3 = new Button
-                    { 
-                        Width = 60,
-                        Height = 60,
-                        Location = new Point(320,200),
-                    };
+            this.lblQuestion = new Label
+            {
+                TextAlign = ContentAlignment.TopCenter,
+                Width = 500,
+                Top = 50,
+                Left = 0,
+            };
+            this.correctAnswer = new Button
+            {
+                Width = 60,
+                Height = 60,
+                Location = new Point(135, 110),
+
+            };
+            this.answer1 = new Button
+            {
+                Width = 60,
+                Height = 60,
+                Location = new Point(320, 110),
+            };
+            this.answer2 = new Button
+            {
+                Width = 60,
+                Height = 60,
+                Location = new Point(135, 200),
+            };
+            this.answer3 = new Button
+            {
+                Width = 60,
+                Height = 60,
+                Location = new Point(320, 200),
+            };
             this.correctAnswer.Click += new EventHandler(correctAnswer_click);
             this.answer1.Click += new EventHandler(wrongAnswer_click);
             this.answer2.Click += new EventHandler(wrongAnswer_click);
@@ -111,12 +104,13 @@ namespace NEA_mini
         }
         private void correctAnswer_click(object sender, EventArgs e)
         {
-            this.correctAnswer.Dispose();this.answer1.Dispose();this.lblQuestion.Dispose();this.answer2.Dispose();this.answer3.Dispose();
-            FormQuiz frm2 = new FormQuiz(this.lvl,qAnswered+=1);
-            
+            qAnswered += 1;
+            this.correctAnswer.Dispose(); this.answer1.Dispose(); this.lblQuestion.Dispose(); this.answer2.Dispose(); this.answer3.Dispose();
+            //Question q2 = new Question(lvl,qAnswered+1);
+            form2 frm2 = new form2(lvl, qAnswered);
             frm2.Show();
             
-        }      
+        }
         private void wrongAnswer_click(object sender, EventArgs e)
         {
 

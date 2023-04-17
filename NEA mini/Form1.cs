@@ -53,7 +53,8 @@ namespace NEA_mini
             {//victory?
                 FormQuiz frmQuiz = new FormQuiz(0,0);
                 frmQuiz.Show();
-                this.Close();
+                this.Hide();
+                //this.Dispose();
                 //Environment.Exit(0);
             }
         }
