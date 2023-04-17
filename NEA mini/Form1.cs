@@ -9,7 +9,6 @@ namespace NEA_mini
             InitializeComponent();
         }
 
-
         private void tmrSwerv_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
@@ -42,7 +41,6 @@ namespace NEA_mini
             }
 
         }
-
 
         private void tmrFall_Tick(object sender, EventArgs e)
         {
@@ -112,9 +110,9 @@ namespace NEA_mini
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
-            Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
-            Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
-            picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
+            //Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
+            //Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
+            //picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
 
             if (Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
             {
