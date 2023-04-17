@@ -51,7 +51,7 @@ namespace NEA_mini
             }
             if (picHudson.Top < 75)
             {//victory?
-                FormQuiz frmQuiz = new FormQuiz(0);
+                FormQuiz frmQuiz = new FormQuiz(0,0);
                 frmQuiz.Show();
                 this.Close();
                 //Environment.Exit(0);
@@ -146,7 +146,7 @@ namespace NEA_mini
                 {
                     Name = "picCar",
                     Size = new Size(100, 50),
-                    Location = new Point(900, 140),//TO-DO new location for going left in fast lane
+                    Location = new Point(900, 140),
                     ImageLocation = "Car top down.png",
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     BackColor = Color.Black,
