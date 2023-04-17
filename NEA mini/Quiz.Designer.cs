@@ -29,18 +29,14 @@
         /// </summary>
         private void InitializeComponent(int level)
         {
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // Quiz
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "Quiz";
-            ShowIcon = false;
-            Load += Quiz_Load;
-            ResumeLayout(false);
-            this.lvl = level;
+            this.ClientSize = new System.Drawing.Size(743, 568);
+            this.Name = "Quiz";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
