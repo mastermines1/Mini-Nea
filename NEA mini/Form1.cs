@@ -51,7 +51,7 @@ namespace NEA_mini
             }
             if (picHudson.Top < 75)
             {//victory?
-                Quiz frmQuiz = new Quiz(1);
+                Quiz frmQuiz = new Quiz(0);
                 frmQuiz.Show();
                 this.Close();
                 //Environment.Exit(0);

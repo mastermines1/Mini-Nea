@@ -20,8 +20,12 @@ namespace NEA_mini
 
         private void Quiz_Load(object sender, EventArgs e)
         {
-            Question q1 = new Question(0);
-
+            Question q1 = new Question(lvl);
+            this.Controls.Add(q1.txtQuestion);
+            this.Controls.Add(q1.correctAnswer);
+            this.Controls.Add(q1.answer1);
+            this.Controls.Add(q1.answer2);
+            this.Controls.Add(q1.answer3);
 
 
 
@@ -30,15 +34,15 @@ namespace NEA_mini
     }
     public class Question
     {
-        TextBox txtQuestion;
-        Button correctAnswer;
-        Button answer1;
-        Button answer2;
-        Button answer3;
+        public TextBox txtQuestion;
+        public Button correctAnswer;
+        public Button answer1;
+        public Button answer2;
+        public Button answer3;
         public Question(int level) 
         {
-            txtQuestion.Location = new Point(100, 200);
-            correctAnswer.Location = new Point(50, 300);
+            this.txtQuestion.Location = new Point(100, 200);
+            this.correctAnswer.Location = new Point(50, 300);
 
 
 

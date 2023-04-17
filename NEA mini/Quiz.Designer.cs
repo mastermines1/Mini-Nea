@@ -33,7 +33,8 @@
             // 
             // Quiz
             // 
-            this.ClientSize = new System.Drawing.Size(743, 568);
+            this.ClientSize = new System.Drawing.Size(1162, 999);
+            this.MinimumSize = new System.Drawing.Size(1000, 1038);
             this.Name = "Quiz";
             this.ResumeLayout(false);
 
