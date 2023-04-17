@@ -1,8 +1,9 @@
 ﻿namespace NEA_mini
 {
-    partial class Quiz
+    partial class FormQuiz
     {
         public int lvl;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -27,15 +28,15 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(int level)
+        private void InitializeComponent(int levl)
         {
             this.SuspendLayout();
             // 
-            // Quiz
+            // FormQuiz
             // 
-            this.ClientSize = new System.Drawing.Size(1162, 999);
-            this.MinimumSize = new System.Drawing.Size(1000, 1038);
-            this.Name = "Quiz";
+            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Name = "FormQuiz";
+            this.Load += new System.EventHandler(this.FormQuiz_Load);
             this.ResumeLayout(false);
 
         }
