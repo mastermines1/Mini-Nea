@@ -59,7 +59,7 @@ namespace NEA_mini
                 {
                 picHudson.Top = 420;
                 FormQuiz frmQuiz = new FormQuiz(level, 0,livesRemaining,score);
-                frmQuiz.Show(); //got to questions
+                frmQuiz.Show(); //go to questions
                 this.Dispose();
                 }
                 else
@@ -148,6 +148,8 @@ namespace NEA_mini
         public PictureBox picCar { get; }
         public System.Windows.Forms.Timer tmr { get; }
         public bool fastLane { get; }
+
+
         public car(bool left, bool fast)
         {
 
