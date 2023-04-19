@@ -2,10 +2,12 @@
 {
     public partial class FormQuiz : Form
     {
-        public FormQuiz(int lvl, int qAnswered)
+        public FormQuiz(int lvl, int qAnswered,int Lives,int score)
         {
             this.lvl = lvl;
             this.qAnswered = qAnswered;
+            this.score = score;
+
             InitializeComponent(lvl, qAnswered);
         }
 
@@ -18,6 +20,7 @@
             {
                 Random rnd = new Random();
                 Point[] pointsList = { new Point(135, 110), new Point(320, 110), new Point(135, 200), new Point(320, 200) };
+                Point[] shuffledPoints = Shuffle(pointsList);
                 Label lblQuestion = new Label
                 {
                     TextAlign = ContentAlignment.TopCenter,
@@ -29,26 +32,26 @@
                 {
                     Width = 60,
                     Height = 60,
-                    Location = new Point(135, 110),
+                    Location = shuffledPoints[0],
 
                 };
                 Button answer1 = new Button
                 {
                     Width = 60,
                     Height = 60,
-                    Location = new Point(320, 110),
+                    Location = shuffledPoints[1],
                 };
                 Button answer2 = new Button
                 {
                     Width = 60,
                     Height = 60,
-                    Location = new Point(135, 200),
+                    Location = shuffledPoints[2],
                 };
                 Button answer3 = new Button
                 {
                     Width = 60,
                     Height = 60,
-                    Location = new Point(320, 200),
+                    Location = shuffledPoints[3],
                 };
                 correctAnswer.Click += new EventHandler(correctAnswer_click);
                 answer1.Click += new EventHandler(wrongAnswer_click);
@@ -80,17 +83,33 @@
             else
             {
 
-            Form1 frm1 = new Form1();
+            Form1 frm1 = new Form1(lvl+1,LivesRemaining,score);
             this.Close();
             frm1.Show();
             }
+        }
+        static Point[] Shuffle(Point[] array)
+        {
+            Random rnd = new Random();
+            int n = array.Length;
+
+            for (int i = n-1; i > 0; i--)
+            {
+                int r =rnd.Next(0,n - i);
+
+
+                Point temp = array[i];
+                array[i] = array[r];
+                array[r] = temp;
+            }
+            return array;
         }
 
         private void correctAnswer_click(object sender, EventArgs e)
         {
             //qAnswered += 1;
-            this.Close();
-            FormQuiz frm = new FormQuiz(lvl,this.qAnswered+1);
+            this.Dispose();
+            FormQuiz frm = new FormQuiz(lvl,this.qAnswered+1,LivesRemaining,score);
             frm.Show();
         }
         private void wrongAnswer_click(object sender, EventArgs e)

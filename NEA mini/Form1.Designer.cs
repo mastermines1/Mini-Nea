@@ -2,6 +2,8 @@
 {
     partial class Form1
     {
+
+        int level, livesRemaining,score;
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -39,6 +41,8 @@
             this.tmrEnemySpawnSlow = new System.Windows.Forms.Timer(this.components);
             this.picReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.tmrScore = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picHudson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWakeyWines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).BeginInit();
@@ -117,12 +121,27 @@
             this.pictureBox25.TabIndex = 6;
             this.pictureBox25.TabStop = false;
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(12, 454);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(0, 15);
+            this.lblScore.TabIndex = 7;
+            // 
+            // tmrScore
+            // 
+            this.tmrScore.Enabled = true;
+            this.tmrScore.Interval = 500;
+            this.tmrScore.Tick += new System.EventHandler(this.tmrScore_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(982, 478);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.picReturn);
             this.Controls.Add(this.picWakeyWines);
             this.Controls.Add(this.picHudson);
@@ -136,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,5 +170,7 @@
         private System.Windows.Forms.Timer tmrEnemySpawnSlow;
         private PictureBox picReturn;
         private PictureBox pictureBox25;
+        private Label lblScore;
+        private System.Windows.Forms.Timer tmrScore;
     }
 }

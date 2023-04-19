@@ -2,8 +2,9 @@
 {
     partial class FormQuiz
     {
-        public int lvl;
-        public int qAnswered;
+        int lvl,qAnswered,LivesRemaining,score;
+        
+
 
         /// <summary>
         /// Required designer variable.
@@ -32,12 +33,11 @@
         /// </summary>
         private void InitializeComponent(int levl, int qAns)
         {
-
             this.SuspendLayout();
             // 
             // FormQuiz
             // 
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "FormQuiz";
             this.Load += new System.EventHandler(this.FormQuiz_Load);
             this.ResumeLayout(false);

@@ -4,8 +4,12 @@ namespace NEA_mini
     {
 
         public int swerveCountDown = 100;
-        public Form1()
+
+        public Form1(int Lvl,int LivesRemaining,int score)
         {
+            level = Lvl;
+            this.livesRemaining = LivesRemaining;
+            this.score = score;
             InitializeComponent();
         }
 
@@ -50,13 +54,18 @@ namespace NEA_mini
 
             }
             if (picHudson.Top < 75)
-            {//victory?
+            {
+                if (level < 2)
+                {
                 picHudson.Top = 420;
-                FormQuiz frmQuiz = new FormQuiz(0, 0);
-                frmQuiz.Show();
-                this.Hide();
-                //this.Dispose();
-                //Environment.Exit(0);
+                FormQuiz frmQuiz = new FormQuiz(level, 0,livesRemaining,score);
+                frmQuiz.Show(); //got to questions
+                this.Dispose();
+                }
+                else
+                {
+                    //victory
+                }
             }
         }
 
@@ -70,9 +79,11 @@ namespace NEA_mini
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
+            lblScore.Text = "Score: "+ score;
         }
+           
+
+        
 
 
         private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
@@ -86,20 +97,22 @@ namespace NEA_mini
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
-            Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
-            Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
-            picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
-
-            if (Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
+        }
+         void hudsonHit()
+         {
+            livesRemaining += 1;
+            if(livesRemaining == 0)
             {
-                hudsonHit();
+                //gameover
             }
+            else
+            {
+                Form1 frm = new Form1(level,livesRemaining,score);
+                this.Dispose();
+                frm.Show();
+            }
+         }
 
-        }
-        static void hudsonHit()
-        {
-
-        }
 
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
         {
@@ -111,15 +124,6 @@ namespace NEA_mini
             car Car2 = new car(true, false);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
-
-            //Car1.picCar.SetBounds(Car1.picCar.Location.X, Car1.picCar.Location.Y, Car1.picCar.Width, Car1.picCar.Height);
-            //Car2.picCar.SetBounds(Car2.picCar.Location.X, Car2.picCar.Location.Y, Car2.picCar.Width, Car2.picCar.Height);
-            //picHudson.SetBounds(picHudson.Location.X, picHudson.Location.Y, picHudson.Width, picHudson.Height);
-
-            if (Car1.picCar.Bounds.IntersectsWith(picHudson.Bounds) || Car2.picCar.Bounds.IntersectsWith(picHudson.Bounds))
-            {
-                hudsonHit();
-            }
         }
 
 
@@ -130,7 +134,14 @@ namespace NEA_mini
             frmTitle.Show();
             this.Hide();
         }
+
+        private void tmrScore_Tick(object sender, EventArgs e)
+        {
+            score -= 10;
+            lblScore.Text = "Score: " +score;
+        }
     }
+}
     public class car
     {
         public bool travelsLeft { get; }
@@ -235,10 +246,6 @@ namespace NEA_mini
                 this.picCar.Dispose();
                 this.tmr.Dispose();
             }
-
-
-
         }
 
     }
-}
