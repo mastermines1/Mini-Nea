@@ -6874,12 +6874,12 @@
     <value>654, 46</value>
   </metadata>
   <metadata name="tmrEnemySpawnSlow.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>817, 34</value>
+    <value>805, 50</value>
   </metadata>
   <data name="picReturn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAc0AAABFCAIAAACnsypLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAADwxJREFUeF7tnH9ZHT8TxWuhGrCAh0pAAxZwUAc4QAEKagADXwd46Hvem5M825lN
+        vAAADrwBlbxySQAADwxJREFUeF7tnH9ZHT8TxWuhGrCAh0pAAxZwUAc4QAEKagADXwd46Hvem5M825lN
         MpNsAqXz+aNP2fyaTE7OZvde+PY7CIIgWEn4bBAEwVrCZ4MgCNYSPhsEQbCW8NkgCIK1hM8GQRCsJXw2
         CIJgLeGzQRAEawmfDYIgWEv4bBAEwVr6Pvvr169vHu7u7n78+PH09PT6+sougiAI/mGu99kj379/h+G+
         v7+zryAIgn+PtT6bgNu+vLywuyAIgn+MHT6beHx8ZI9BEAT/EiM+e39//6MCjq6sdMbz8zM7/TS8vb09
@@ -6949,7 +6949,7 @@
   <data name="pictureBox25.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA9YAAAFiCAYAAAATLUD4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAADUVJREFUeF7t3EGOZFe97eGYgYdUo4gZ0KkW8vCg5R5tG2Obwh2gMJYblrChnRCJ
+        vAAADrwBlbxySQAADUVJREFUeF7t3EGOZFe97eGYgYdUo4gZ0KkW8vCg5R5tG2Obwh2gMJYblrChnRCJ
         I3V0tOOQFQutXTv0/a4+Jfvy3tOJv650tWTxTp//+R9Pb9++fTp9dvLXX3/99ddffz/iv6fT6WnU5b//
         mv/7/vrrr7/++uvv//fvp7/+1X//d/EX/xnWv/n8h+d/AwD4iP2PYQ0AdL0M69//5afnYf3mzZsXl/8F
         7e3t7e3t7f3xvUdd/8/d8/+et7e3t7e39/3vl2H95S/D+vJvAgAAAK93GdenL/9qWAMAAMDd/vDesAYA
@@ -7009,6 +7009,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="tmrScore.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1355, 42</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>123</value>
   </metadata>

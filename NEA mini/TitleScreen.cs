@@ -19,7 +19,7 @@ namespace NEA_mini
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Form1 frmMain = new Form1();
+            Form1 frmMain = new Form1(0,3,30000);
 
             frmMain.Show();
             this.Hide();
