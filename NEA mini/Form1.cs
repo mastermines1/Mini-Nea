@@ -51,7 +51,8 @@ namespace NEA_mini
             }
             if (picHudson.Top < 75)
             {//victory?
-                FormQuiz frmQuiz = new FormQuiz(0,0);
+                picHudson.Top = 420;
+                FormQuiz frmQuiz = new FormQuiz(0, 0);
                 frmQuiz.Show();
                 this.Hide();
                 //this.Dispose();
@@ -191,7 +192,7 @@ namespace NEA_mini
                     Interval = 10,
                     Enabled = true,
                 };
-            }//done
+            }
             else if (left == false && fast == false)
             {
                 this.picCar = new PictureBox

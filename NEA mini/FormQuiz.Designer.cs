@@ -12,6 +12,7 @@
 
         /// <summary>
         /// Clean up any resources being used.
+        /// 
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -29,7 +30,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(int levl, int qAnswered)
+        private void InitializeComponent(int levl, int qAns)
         {
 
             this.SuspendLayout();
