@@ -45,19 +45,10 @@ namespace NEA_mini
             }
             else
             {
+                listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add("");
+                intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1);
                 addToBoard(listPlayers, intScores);
             }
-
-
-
-
-
-
-            
-
-
-
-
 
         }
 

@@ -28,7 +28,7 @@ namespace NEA_mini
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
-            FormBoard frmBoard = new FormBoard(10000000);
+            FormBoard frmBoard = new FormBoard(0);
             frmBoard.Show();
             this.Hide();
 
