@@ -2,7 +2,7 @@
 {
     partial class TitleScreen
     {
-       
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,74 +29,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
-
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TitleScreen));
-            this.picTitle = new System.Windows.Forms.PictureBox();
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnHighScores = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picTitle)).BeginInit();
-            this.SuspendLayout();
+            picTitle = new PictureBox();
+            btnPlay = new Button();
+            btnHighScores = new Button();
+            btnHelp = new Button();
+            lblHelp = new Label();
+            btnReturn = new Button();
+            btnQuit = new Button();
+            ((System.ComponentModel.ISupportInitialize)picTitle).BeginInit();
+            SuspendLayout();
             // 
             // picTitle
             // 
-            this.picTitle.Image = ((System.Drawing.Image)(resources.GetObject("picTitle.Image")));
-            this.picTitle.Location = new System.Drawing.Point(45, 10);
-            this.picTitle.Name = "picTitle";
-            this.picTitle.Size = new System.Drawing.Size(375, 126);
-            this.picTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picTitle.TabIndex = 0;
-            this.picTitle.TabStop = false;
+            picTitle.Image = (Image)resources.GetObject("picTitle.Image");
+            picTitle.Location = new Point(45, 10);
+            picTitle.Name = "picTitle";
+            picTitle.Size = new Size(375, 126);
+            picTitle.SizeMode = PictureBoxSizeMode.StretchImage;
+            picTitle.TabIndex = 0;
+            picTitle.TabStop = false;
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(156, 177);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(110, 29);
-            this.btnPlay.TabIndex = 1;
-            this.btnPlay.Text = "Play";
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            btnPlay.Location = new Point(156, 177);
+            btnPlay.Name = "btnPlay";
+            btnPlay.Size = new Size(110, 29);
+            btnPlay.TabIndex = 1;
+            btnPlay.Text = "Play";
+            btnPlay.UseVisualStyleBackColor = true;
+            btnPlay.Click += btnPlay_Click;
             // 
             // btnHighScores
             // 
-            this.btnHighScores.Location = new System.Drawing.Point(156, 215);
-            this.btnHighScores.Name = "btnHighScores";
-            this.btnHighScores.Size = new System.Drawing.Size(110, 29);
-            this.btnHighScores.TabIndex = 1;
-            this.btnHighScores.Text = "High scores";
-            this.btnHighScores.UseVisualStyleBackColor = true;
-            this.btnHighScores.Click += new System.EventHandler(this.btnHighScores_Click);
+            btnHighScores.Location = new Point(156, 215);
+            btnHighScores.Name = "btnHighScores";
+            btnHighScores.Size = new Size(110, 29);
+            btnHighScores.TabIndex = 1;
+            btnHighScores.Text = "High scores";
+            btnHighScores.UseVisualStyleBackColor = true;
+            btnHighScores.Click += btnHighScores_Click;
             // 
             // btnHelp
             // 
-            this.btnHelp.Location = new System.Drawing.Point(156, 253);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(110, 29);
-            this.btnHelp.TabIndex = 1;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            btnHelp.Location = new Point(156, 253);
+            btnHelp.Name = "btnHelp";
+            btnHelp.Size = new Size(110, 29);
+            btnHelp.TabIndex = 1;
+            btnHelp.Text = "Help";
+            btnHelp.UseVisualStyleBackColor = true;
+            btnHelp.Click += btnHelp_Click;
+            // 
+            // lblHelp
+            // 
+            lblHelp.Location = new Point(0, 137);
+            lblHelp.Name = "lblHelp";
+            lblHelp.Size = new Size(416, 153);
+            lblHelp.TabIndex = 2;
+            lblHelp.Text = "Press space to move up and try and avoid the cars.";
+            lblHelp.TextAlign = ContentAlignment.TopCenter;
+            lblHelp.Visible = false;
+            // 
+            // btnReturn
+            // 
+            btnReturn.Location = new Point(95, 200);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(232, 44);
+            btnReturn.TabIndex = 3;
+            btnReturn.Text = "Return";
+            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.Visible = false;
+            btnReturn.Click += btnReturn_Click;
+            // 
+            // btnQuit
+            // 
+            btnQuit.Location = new Point(4, 16);
+            btnQuit.Name = "btnQuit";
+            btnQuit.Size = new Size(24, 23);
+            btnQuit.TabIndex = 4;
+            btnQuit.Text = "X";
+            btnQuit.UseVisualStyleBackColor = true;
+            btnQuit.Click += btnQuit_Click;
             // 
             // TitleScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 291);
-            this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.btnHighScores);
-            this.Controls.Add(this.btnPlay);
-            this.Controls.Add(this.picTitle);
-            this.Name = "TitleScreen";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
-            ((System.ComponentModel.ISupportInitialize)(this.picTitle)).EndInit();
-            this.ResumeLayout(false);
-
-
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(422, 291);
+            Controls.Add(btnQuit);
+            Controls.Add(btnReturn);
+            Controls.Add(lblHelp);
+            Controls.Add(btnHelp);
+            Controls.Add(btnHighScores);
+            Controls.Add(btnPlay);
+            Controls.Add(picTitle);
+            Name = "TitleScreen";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = " ";
+            ((System.ComponentModel.ISupportInitialize)picTitle).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -105,5 +137,8 @@
         private Button btnPlay;
         private Button btnHighScores;
         private Button btnHelp;
+        private Label lblHelp;
+        private Button btnReturn;
+        private Button btnQuit;
     }
 }

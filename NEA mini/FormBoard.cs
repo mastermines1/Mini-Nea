@@ -22,7 +22,7 @@ namespace NEA_mini
         {
             string[] scores = File.ReadAllLines("Scores.txt");
             string[] players = File.ReadAllLines("Players.txt");
-            List<int> intScores = new List<int>();
+            this.intScores = new List<int>();
             this.stringPlayers = players.ToList();
             Dictionary<int, string> dictScores = new Dictionary<int, string>();
 
@@ -32,29 +32,30 @@ namespace NEA_mini
                 intScores.Add(Convert.ToInt32(scores[i]));
                 //dictScores.Add(intScores[i],listPlayers[i]);
             }
-            if (newScore > intScores[scores.Length - 1] || intScores.Count <4 && newScore != 0)
+            if (newScore > intScores[scores.Length - 1] || intScores.Count < 4 && newScore != 0)
             {
                 intScores.Add(newScore);
                 intScores.Sort();
-                intScores.Reverse();
                 lblNewHS.Visible = true;
                 txtInput.Visible = true;
                 btnSubmit.Visible = true;
-                lblNewHS.Text = $"New high score \n Your score of {newScore} now places at rank {Convert.ToString(intScores.BinarySearch(newScore) + 1)} of the leaderboard! \n Please enter your name";
+                lblNewHS.Text = $"New high score \n Your score of {newScore} now places at rank {Convert.ToString(intScores.Count - (intScores.BinarySearch(newScore)) + 2)} of the leaderboard! \n Please enter your name";
+                intScores.Reverse();
                 this.stringScores = new List<string>();
-                for(int i = 0; i < intScores.Count;i++)
+                for (int i = 0; i < intScores.Count; i++)
                 {
                     this.stringScores.Add(intScores[i].ToString());
                 }
-                
+
+                {
+                    addToBoard(stringPlayers, intScores);
+                }
             }
             else
             {
                 addToBoard(stringPlayers, intScores);
             }
-
         }
-
         private void addToBoard(List<string> listPlayers, List<int> intScores)
         {
             listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add("");
@@ -85,11 +86,12 @@ namespace NEA_mini
                 lblScore5.Text = intScores[4].ToString();
             }
             tblScores.Visible = true;
+            btnReturn.Visible = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(txtInput.Text == "")
+            if (txtInput.Text == "")
             {
                 lblNewHS.Text = "Invalid Input. Try again";
 
@@ -98,18 +100,18 @@ namespace NEA_mini
             {
                 string newName = txtInput.Text;
                 stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add("");
+                intScores.Reverse();
+                int r = intScores.Count - (this.intScores.BinarySearch(newScore));
+                intScores.Reverse();
 
-                int r = this.stringScores.BinarySearch(newScore.ToString());
-                string temp = stringPlayers[r];
-                stringPlayers[r] = newName;
                 List<string> finalPlayers = new List<string>();
 
-                for(int i = 0;i < r-1;i++)
+                for (int i = 0; i < r - 1; i++)
                 {
                     finalPlayers.Add(stringPlayers[i]);
                 }
-                finalPlayers.Add(stringPlayers[r]);
-                for(int i = r; i<stringPlayers.Count-1;i++)
+                finalPlayers.Add(newName);
+                for (int i = r; i < stringPlayers.Count - 2; i++)
                 {
                     finalPlayers.Add(stringPlayers[i]);
                 }
@@ -120,10 +122,17 @@ namespace NEA_mini
                 FormBoard frm = new FormBoard(0);
                 this.Dispose();
                 frm.Show();
-                
+
 
             }
         }
-    }
 
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            TitleScreen frm = new TitleScreen();
+            this.Dispose();
+            frm.Show();
+        }
+    }
 }
+

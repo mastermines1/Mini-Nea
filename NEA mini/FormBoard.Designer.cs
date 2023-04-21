@@ -5,6 +5,7 @@
         int newScore;
         public List<string> stringScores;
         public List<string> stringPlayers;
+        public List<int> intScores;
 
 
         /// <summary>
@@ -49,6 +50,7 @@
             lblNewHS = new Label();
             txtInput = new TextBox();
             btnSubmit = new Button();
+            btnReturn = new Button();
             tblScores.SuspendLayout();
             SuspendLayout();
             // 
@@ -211,16 +213,30 @@
             btnSubmit.Visible = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
+            // btnReturn
+            // 
+            btnReturn.Location = new Point(318, 15);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(71, 48);
+            btnReturn.TabIndex = 4;
+            btnReturn.Text = "Return";
+            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.Visible = false;
+            btnReturn.Click += btnReturn_Click;
+            // 
             // FormBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(392, 358);
+            ControlBox = false;
+            Controls.Add(btnReturn);
             Controls.Add(btnSubmit);
             Controls.Add(txtInput);
             Controls.Add(lblNewHS);
             Controls.Add(tblScores);
             Name = "FormBoard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LeaderBoard";
             Load += FormBoard_Load;
             tblScores.ResumeLayout(false);
@@ -246,5 +262,6 @@
         private Label lblNewHS;
         private TextBox txtInput;
         private Button btnSubmit;
+        private Button btnReturn;
     }
 }

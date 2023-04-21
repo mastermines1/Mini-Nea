@@ -91,10 +91,6 @@ namespace NEA_mini
             lblLives.Text = "Lives: " + livesRemaining;
         }
 
-
-
-
-
         private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnFast.Interval = 1000;
@@ -113,7 +109,7 @@ namespace NEA_mini
 
             if (livesRemaining <= 0)
             {
-                FormBoard frmbrd = new FormBoard(score-scoreLost);
+                FormBoard frmbrd = new FormBoard(score);
                 this.Dispose();
                 frmbrd.Show();
                 //gameover

@@ -19,11 +19,11 @@ namespace NEA_mini
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Form1 frmMain = new Form1(0,3,30000);
+            Form1 frmMain = new Form1(0, 3, 30000);
 
             frmMain.Show();
             this.Hide();
-            
+
         }
 
         private void btnHighScores_Click(object sender, EventArgs e)
@@ -36,7 +36,20 @@ namespace NEA_mini
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
+            lblHelp.Visible = true;
+            btnReturn.Visible = true;
+            btnReturn.BringToFront();
+        }
 
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            lblHelp.Visible = false;
+            btnReturn.Visible = false;
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
