@@ -1,4 +1,6 @@
-﻿namespace NEA_mini
+﻿using System.Windows.Forms.VisualStyles;
+
+namespace NEA_mini
 {
     public partial class FormQuiz : Form
     {
@@ -23,7 +25,7 @@
                 Point[] shuffledPoints = Shuffle(pointsList);
                 Label lblQuestion = new Label
                 {
-                    TextAlign = ContentAlignment.TopCenter,
+                    TextAlign = System.Drawing.ContentAlignment.TopCenter, 
                     Width = 500,
                     Top = 50,
                     Left = 0,
@@ -71,6 +73,9 @@
                     case 1:
                         break;
                     case 2:
+                        FormBoard frm = new FormBoard(score);
+                        this.Dispose();
+                        frm.Show();
                         break;
                 }
                 this.Controls.Add(lblQuestion);
@@ -114,7 +119,9 @@
         }
         private void wrongAnswer_click(object sender, EventArgs e)
         {
-
+            FormBoard frm = new FormBoard(0);
+            this.Dispose();
+            frm.Show();
         }
     }
     public class questionsAndAnswers

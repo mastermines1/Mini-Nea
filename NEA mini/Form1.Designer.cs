@@ -43,6 +43,7 @@
             pictureBox25 = new PictureBox();
             lblScore = new Label();
             tmrScore = new System.Windows.Forms.Timer(components);
+            lblLives = new Label();
             ((System.ComponentModel.ISupportInitialize)picHudson).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picWakeyWines).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picReturn).BeginInit();
@@ -90,13 +91,11 @@
             // tmrEnemySpawnFast
             // 
             tmrEnemySpawnFast.Enabled = true;
-            tmrEnemySpawnFast.Interval = 1;
             tmrEnemySpawnFast.Tick += tmrEnemySpawnFast_Tick;
             // 
             // tmrEnemySpawnSlow
             // 
             tmrEnemySpawnSlow.Enabled = true;
-            tmrEnemySpawnSlow.Interval = 1;
             tmrEnemySpawnSlow.Tick += tmrEnemySpawnSlow_Tick;
             // 
             // picReturn
@@ -135,12 +134,22 @@
             tmrScore.Interval = 500;
             tmrScore.Tick += tmrScore_Tick;
             // 
+            // lblLives
+            // 
+            lblLives.AutoSize = true;
+            lblLives.Location = new Point(86, 454);
+            lblLives.Name = "lblLives";
+            lblLives.Size = new Size(45, 15);
+            lblLives.TabIndex = 7;
+            lblLives.Text = "Lives: 3";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 0);
             ClientSize = new Size(982, 478);
+            Controls.Add(lblLives);
             Controls.Add(lblScore);
             Controls.Add(picReturn);
             Controls.Add(picWakeyWines);
@@ -148,6 +157,7 @@
             Controls.Add(pictureBox25);
             Name = "Form1";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Load += Form1_Load;
             KeyUp += Form1_KeyUp;
             ((System.ComponentModel.ISupportInitialize)picHudson).EndInit();
@@ -170,5 +180,6 @@
         private Label lblScore;
         private System.Windows.Forms.Timer tmrScore;
         public PictureBox picHudson;
+        private Label lblLives;
     }
 }

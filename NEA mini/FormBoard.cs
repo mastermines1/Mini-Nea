@@ -23,37 +23,42 @@ namespace NEA_mini
             string[] scores = File.ReadAllLines("Scores.txt");
             string[] players = File.ReadAllLines("Players.txt");
             List<int> intScores = new List<int>();
-            List<string> listPlayers = players.ToList();
+            this.stringPlayers = players.ToList();
             Dictionary<int, string> dictScores = new Dictionary<int, string>();
-            
+
 
             for (int i = 0; i < scores.Length; i++)
             {
                 intScores.Add(Convert.ToInt32(scores[i]));
                 //dictScores.Add(intScores[i],listPlayers[i]);
             }
-            if(newScore > intScores[scores.Length-1])
+            if (newScore > intScores[scores.Length - 1] || intScores.Count <4 && newScore != 0)
             {
                 intScores.Add(newScore);
                 intScores.Sort();
                 intScores.Reverse();
-                listPlayers.Add("");listPlayers.Add("");listPlayers.Add("");listPlayers.Add("");listPlayers.Add("");
-                intScores.Add(-1);intScores.Add(-1);intScores.Add(-1);intScores.Add(-1);intScores.Add(-1);
-
-
-
+                lblNewHS.Visible = true;
+                txtInput.Visible = true;
+                btnSubmit.Visible = true;
+                lblNewHS.Text = $"New high score \n Your score of {newScore} now places at rank {Convert.ToString(intScores.BinarySearch(newScore) + 1)} of the leaderboard! \n Please enter your name";
+                this.stringScores = new List<string>();
+                for(int i = 0; i < intScores.Count;i++)
+                {
+                    this.stringScores.Add(intScores[i].ToString());
+                }
+                
             }
             else
             {
-                listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add("");
-                intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1);
-                addToBoard(listPlayers, intScores);
+                addToBoard(stringPlayers, intScores);
             }
 
         }
 
-        private void addToBoard(List<string> listPlayers,List<int> intScores)
+        private void addToBoard(List<string> listPlayers, List<int> intScores)
         {
+            listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add(""); listPlayers.Add("");
+            intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1); intScores.Add(-1);
             lblName1.Text = listPlayers[0];
             lblName2.Text = listPlayers[1];
             lblName3.Text = listPlayers[2];
@@ -82,6 +87,43 @@ namespace NEA_mini
             tblScores.Visible = true;
         }
 
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if(txtInput.Text == "")
+            {
+                lblNewHS.Text = "Invalid Input. Try again";
+
+            }
+            else
+            {
+                string newName = txtInput.Text;
+                stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add("");
+
+                int r = this.stringScores.BinarySearch(newScore.ToString());
+                string temp = stringPlayers[r];
+                stringPlayers[r] = newName;
+                List<string> finalPlayers = new List<string>();
+
+                for(int i = 0;i < r-1;i++)
+                {
+                    finalPlayers.Add(stringPlayers[i]);
+                }
+                finalPlayers.Add(stringPlayers[r]);
+                for(int i = r; i<stringPlayers.Count-1;i++)
+                {
+                    finalPlayers.Add(stringPlayers[i]);
+                }
+                File.WriteAllLines("Scores.txt", stringScores);
+                File.WriteAllLines("Players.txt", finalPlayers);
+
+
+                FormBoard frm = new FormBoard(0);
+                this.Dispose();
+                frm.Show();
+                
+
+            }
+        }
     }
 
 }
