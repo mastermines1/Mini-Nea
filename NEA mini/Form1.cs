@@ -185,6 +185,7 @@ public class car
                 ImageLocation = "Car top down.png",
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Black,
+                
             };
             this.tmr = new System.Windows.Forms.Timer
             {
