@@ -9,6 +9,7 @@ namespace NEA_mini
             this.lvl = lvl;
             this.qAnswered = qAnswered;
             this.score = score;
+            this.LivesRemaining = Lives;
 
             InitializeComponent(lvl, qAnswered);
         }
