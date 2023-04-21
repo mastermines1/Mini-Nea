@@ -24,15 +24,13 @@ namespace NEA_mini
             string[] players = File.ReadAllLines("Players.txt");
             this.intScores = new List<int>();
             this.stringPlayers = players.ToList();
-            Dictionary<int, string> dictScores = new Dictionary<int, string>();
 
 
             for (int i = 0; i < scores.Length; i++)
             {
                 intScores.Add(Convert.ToInt32(scores[i]));
-                //dictScores.Add(intScores[i],listPlayers[i]);
             }
-            if (newScore > intScores[scores.Length - 1] || intScores.Count < 4 && newScore != 0)
+             if (newScore > intScores[scores.Length - 1] || intScores.Count < 4 && newScore != 0)
             {
                 intScores.Add(newScore);
                 intScores.Sort();
@@ -47,9 +45,6 @@ namespace NEA_mini
                     this.stringScores.Add(intScores[i].ToString());
                 }
 
-                {
-                    addToBoard(stringPlayers, intScores);
-                }
             }
             else
             {
@@ -99,10 +94,11 @@ namespace NEA_mini
             else
             {
                 string newName = txtInput.Text;
-                stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add("");
                 intScores.Reverse();
                 int r = intScores.Count - (this.intScores.BinarySearch(newScore));
                 intScores.Reverse();
+                stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add(""); stringPlayers.Add("");
+                stringScores.Add("0"); stringScores.Add("0"); stringScores.Add("0"); stringScores.Add("0"); stringScores.Add("0");
 
                 List<string> finalPlayers = new List<string>();
 
@@ -115,8 +111,12 @@ namespace NEA_mini
                 {
                     finalPlayers.Add(stringPlayers[i]);
                 }
-                File.WriteAllLines("Scores.txt", stringScores);
-                File.WriteAllLines("Players.txt", finalPlayers);
+
+                for (int i = 0; i < 4 ; i++)
+                {
+                    File.WriteAllText("Scores.txt",stringScores[i]);
+                    File.WriteAllText("Players.txt", stringPlayers[i]);
+                } 
 
 
                 FormBoard frm = new FormBoard(0);

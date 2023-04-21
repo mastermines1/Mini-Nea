@@ -114,13 +114,13 @@ namespace NEA_mini
         private void correctAnswer_click(object sender, EventArgs e)
         {
             //qAnswered += 1;
-            this.Dispose();
+            this.Dispose(); 
             FormQuiz frm = new FormQuiz(lvl,this.qAnswered+1,LivesRemaining,score);
             frm.Show();
         }
         private void wrongAnswer_click(object sender, EventArgs e)
         {
-            FormBoard frm = new FormBoard(score);
+            FormBoard frm = new FormBoard(score*(lvl+1));
             this.Dispose();
             frm.Show();
         }
@@ -129,7 +129,7 @@ namespace NEA_mini
     {
         static string[] questions = { "What is the legal drinking age in the US?", "What is the alcohol limit for driving in the US?" };
         static string[] correctAnswer = { "21", "0.08% BAC" };
-        static string[] wrongAnswer1 = { "16", "1.00% BAC", };
+        static string[] wrongAnswer1 = { "16", "1.00% BAC", };  
         static string[] wrongAnswer2 = { "17", "0.02% BAC", };
         static string[] wrongAnswer3 = { "20", "0.05% BAC", };
         public static string getQ(int i)
