@@ -1,4 +1,7 @@
+using NEA_mini;
+using System.Drawing.Text;
 using System.Globalization;
+using System.Reflection;
 
 namespace NEA_mini
 {
@@ -85,6 +88,7 @@ namespace NEA_mini
         private void Form1_Load(object sender, EventArgs e)
         {
             lblScore.Text = "Score: " + score;
+            lblLives.Text = "Lives: " + livesRemaining;
         }
 
 
@@ -94,21 +98,22 @@ namespace NEA_mini
         private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnFast.Interval = 1000;
-            car Car1 = new car(false, true);
+            car Car1 = new car(false, true, this);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
             tmrEnemySpawnFast.Interval = 1000;
-            car Car2 = new car(true, true);
+            car Car2 = new car(true, true, this);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
         }
         public void hudsonHit()
         {
-            livesRemaining += 1;
-            if (livesRemaining == 0)
+            livesRemaining = livesRemaining - 1;
+
+            if (livesRemaining <= 0)
             {
-                FormBoard frmbrd = new FormBoard(score);
+                FormBoard frmbrd = new FormBoard(0);
                 this.Dispose();
                 frmbrd.Show();
                 //gameover
@@ -126,11 +131,11 @@ namespace NEA_mini
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnSlow.Interval = 3000;
-            car Car1 = new car(false, false);
+            car Car1 = new car(false, false, this);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
             tmrEnemySpawnSlow.Interval = 3000;
-            car Car2 = new car(true, false);
+            car Car2 = new car(true, false, this);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
         }
@@ -147,7 +152,17 @@ namespace NEA_mini
         private void tmrScore_Tick(object sender, EventArgs e)
         {
             score -= 10;
-            lblScore.Text = "Score: " + score;
+            if (score != 0)
+            {
+                lblScore.Text = "Score: " + score;
+            }
+            else
+            {
+                MessageBox.Show("You lost", "You loose");
+                FormBoard frm = new FormBoard(score);
+                this.Dispose();
+                frm.Show();
+            }
         }
     }
 }
@@ -157,11 +172,11 @@ public class car
     public PictureBox picCar { get; }
     public System.Windows.Forms.Timer tmr { get; }
     public bool fastLane { get; }
+    private Form1 mainform;
 
-
-    public car(bool left, bool fast)
+    public car(bool left, bool fast, Form1 amainform)
     {
-
+        this.mainform = amainform;
         this.travelsLeft = left;
         this.fastLane = fast;
         if (left && fast)
@@ -257,10 +272,11 @@ public class car
             this.picCar.Dispose();
             this.tmr.Dispose();
         }
-        Control[] i = Application.OpenForms[1].Controls.Find("picHudson",true);
-        if(picCar.Bounds.IntersectsWith(i[0].Bounds))
+        //Control[] i = Application.OpenForms[1].Controls.Find("picHudson", true);
+        if (this.picCar.Bounds.IntersectsWith(mainform.picHudson.Bounds))
         {
-            Application.OpenForms[1]
+            mainform.picHudson.Location = new Point(481, 425);
+            mainform.hudsonHit();
         }
     }
 

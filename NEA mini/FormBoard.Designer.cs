@@ -3,6 +3,8 @@
     partial class FormBoard
     {
         int newScore;
+        public List<string> stringScores;
+        public List<string> stringPlayers;
 
 
         /// <summary>
@@ -31,164 +33,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tblScores = new System.Windows.Forms.TableLayoutPanel();
-            this.lblName1 = new System.Windows.Forms.Label();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblScore1 = new System.Windows.Forms.Label();
-            this.lblName2 = new System.Windows.Forms.Label();
-            this.lblScore2 = new System.Windows.Forms.Label();
-            this.lblName3 = new System.Windows.Forms.Label();
-            this.lblScore3 = new System.Windows.Forms.Label();
-            this.lblName4 = new System.Windows.Forms.Label();
-            this.lblScore4 = new System.Windows.Forms.Label();
-            this.lblName5 = new System.Windows.Forms.Label();
-            this.lblScore5 = new System.Windows.Forms.Label();
-            this.tblScores.SuspendLayout();
-            this.SuspendLayout();
+            tblScores = new TableLayoutPanel();
+            lblName1 = new Label();
+            lblScore = new Label();
+            lblName = new Label();
+            lblScore1 = new Label();
+            lblName2 = new Label();
+            lblScore2 = new Label();
+            lblName3 = new Label();
+            lblScore3 = new Label();
+            lblName4 = new Label();
+            lblScore4 = new Label();
+            lblName5 = new Label();
+            lblScore5 = new Label();
+            lblNewHS = new Label();
+            txtInput = new TextBox();
+            btnSubmit = new Button();
+            tblScores.SuspendLayout();
+            SuspendLayout();
             // 
             // tblScores
             // 
-            this.tblScores.ColumnCount = 2;
-            this.tblScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblScores.Controls.Add(this.lblName1, 0, 1);
-            this.tblScores.Controls.Add(this.lblScore, 1, 0);
-            this.tblScores.Controls.Add(this.lblName, 0, 0);
-            this.tblScores.Controls.Add(this.lblScore1, 1, 1);
-            this.tblScores.Controls.Add(this.lblName2, 0, 2);
-            this.tblScores.Controls.Add(this.lblScore2, 1, 2);
-            this.tblScores.Controls.Add(this.lblName3, 0, 3);
-            this.tblScores.Controls.Add(this.lblScore3, 1, 3);
-            this.tblScores.Controls.Add(this.lblName4, 0, 4);
-            this.tblScores.Controls.Add(this.lblScore4, 1, 4);
-            this.tblScores.Controls.Add(this.lblName5, 0, 5);
-            this.tblScores.Controls.Add(this.lblScore5, 1, 5);
-            this.tblScores.Location = new System.Drawing.Point(62, 12);
-            this.tblScores.Name = "tblScores";
-            this.tblScores.RowCount = 6;
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.71429F));
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.85714F));
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.85714F));
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.85714F));
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.85714F));
-            this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.85715F));
-            this.tblScores.Size = new System.Drawing.Size(248, 313);
-            this.tblScores.TabIndex = 0;
-            this.tblScores.Visible = false;
+            tblScores.ColumnCount = 2;
+            tblScores.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tblScores.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tblScores.Controls.Add(lblName1, 0, 1);
+            tblScores.Controls.Add(lblScore, 1, 0);
+            tblScores.Controls.Add(lblName, 0, 0);
+            tblScores.Controls.Add(lblScore1, 1, 1);
+            tblScores.Controls.Add(lblName2, 0, 2);
+            tblScores.Controls.Add(lblScore2, 1, 2);
+            tblScores.Controls.Add(lblName3, 0, 3);
+            tblScores.Controls.Add(lblScore3, 1, 3);
+            tblScores.Controls.Add(lblName4, 0, 4);
+            tblScores.Controls.Add(lblScore4, 1, 4);
+            tblScores.Controls.Add(lblName5, 0, 5);
+            tblScores.Controls.Add(lblScore5, 1, 5);
+            tblScores.Location = new Point(62, 12);
+            tblScores.Name = "tblScores";
+            tblScores.RowCount = 6;
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 10.71429F));
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 17.85714F));
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 17.85714F));
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 17.85714F));
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 17.85714F));
+            tblScores.RowStyles.Add(new RowStyle(SizeType.Percent, 17.85715F));
+            tblScores.Size = new Size(248, 313);
+            tblScores.TabIndex = 0;
+            tblScores.Visible = false;
             // 
             // lblName1
             // 
-            this.lblName1.Location = new System.Drawing.Point(3, 33);
-            this.lblName1.Name = "lblName1";
-            this.lblName1.Size = new System.Drawing.Size(118, 55);
-            this.lblName1.TabIndex = 1;
-            this.lblName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName1.Location = new Point(3, 33);
+            lblName1.Name = "lblName1";
+            lblName1.Size = new Size(118, 55);
+            lblName1.TabIndex = 1;
+            lblName1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore
             // 
-            this.lblScore.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblScore.Location = new System.Drawing.Point(127, 0);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(118, 33);
-            this.lblScore.TabIndex = 1;
-            this.lblScore.Text = "Score";
-            this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore.BackColor = SystemColors.ActiveBorder;
+            lblScore.Location = new Point(127, 0);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(118, 33);
+            lblScore.TabIndex = 1;
+            lblScore.Text = "Score";
+            lblScore.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblName.Location = new System.Drawing.Point(3, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(118, 33);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName.BackColor = SystemColors.ActiveBorder;
+            lblName.Location = new Point(3, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(118, 33);
+            lblName.TabIndex = 1;
+            lblName.Text = "Name";
+            lblName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore1
             // 
-            this.lblScore1.Location = new System.Drawing.Point(127, 33);
-            this.lblScore1.Name = "lblScore1";
-            this.lblScore1.Size = new System.Drawing.Size(118, 55);
-            this.lblScore1.TabIndex = 1;
-            this.lblScore1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore1.Location = new Point(127, 33);
+            lblScore1.Name = "lblScore1";
+            lblScore1.Size = new Size(118, 55);
+            lblScore1.TabIndex = 1;
+            lblScore1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName2
             // 
-            this.lblName2.Location = new System.Drawing.Point(3, 88);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(118, 55);
-            this.lblName2.TabIndex = 1;
-            this.lblName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName2.Location = new Point(3, 88);
+            lblName2.Name = "lblName2";
+            lblName2.Size = new Size(118, 55);
+            lblName2.TabIndex = 1;
+            lblName2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore2
             // 
-            this.lblScore2.Location = new System.Drawing.Point(127, 88);
-            this.lblScore2.Name = "lblScore2";
-            this.lblScore2.Size = new System.Drawing.Size(118, 55);
-            this.lblScore2.TabIndex = 1;
-            this.lblScore2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore2.Location = new Point(127, 88);
+            lblScore2.Name = "lblScore2";
+            lblScore2.Size = new Size(118, 55);
+            lblScore2.TabIndex = 1;
+            lblScore2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName3
             // 
-            this.lblName3.Location = new System.Drawing.Point(3, 143);
-            this.lblName3.Name = "lblName3";
-            this.lblName3.Size = new System.Drawing.Size(118, 55);
-            this.lblName3.TabIndex = 1;
-            this.lblName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName3.Location = new Point(3, 143);
+            lblName3.Name = "lblName3";
+            lblName3.Size = new Size(118, 55);
+            lblName3.TabIndex = 1;
+            lblName3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore3
             // 
-            this.lblScore3.Location = new System.Drawing.Point(127, 143);
-            this.lblScore3.Name = "lblScore3";
-            this.lblScore3.Size = new System.Drawing.Size(118, 55);
-            this.lblScore3.TabIndex = 1;
-            this.lblScore3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore3.Location = new Point(127, 143);
+            lblScore3.Name = "lblScore3";
+            lblScore3.Size = new Size(118, 55);
+            lblScore3.TabIndex = 1;
+            lblScore3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName4
             // 
-            this.lblName4.Location = new System.Drawing.Point(3, 198);
-            this.lblName4.Name = "lblName4";
-            this.lblName4.Size = new System.Drawing.Size(118, 55);
-            this.lblName4.TabIndex = 1;
-            this.lblName4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName4.Location = new Point(3, 198);
+            lblName4.Name = "lblName4";
+            lblName4.Size = new Size(118, 55);
+            lblName4.TabIndex = 1;
+            lblName4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore4
             // 
-            this.lblScore4.Location = new System.Drawing.Point(127, 198);
-            this.lblScore4.Name = "lblScore4";
-            this.lblScore4.Size = new System.Drawing.Size(118, 55);
-            this.lblScore4.TabIndex = 1;
-            this.lblScore4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore4.Location = new Point(127, 198);
+            lblScore4.Name = "lblScore4";
+            lblScore4.Size = new Size(118, 55);
+            lblScore4.TabIndex = 1;
+            lblScore4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName5
             // 
-            this.lblName5.Location = new System.Drawing.Point(3, 253);
-            this.lblName5.Name = "lblName5";
-            this.lblName5.Size = new System.Drawing.Size(118, 55);
-            this.lblName5.TabIndex = 1;
-            this.lblName5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblName5.Location = new Point(3, 253);
+            lblName5.Name = "lblName5";
+            lblName5.Size = new Size(118, 55);
+            lblName5.TabIndex = 1;
+            lblName5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblScore5
             // 
-            this.lblScore5.Location = new System.Drawing.Point(127, 253);
-            this.lblScore5.Name = "lblScore5";
-            this.lblScore5.Size = new System.Drawing.Size(118, 55);
-            this.lblScore5.TabIndex = 1;
-            this.lblScore5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore5.Location = new Point(127, 253);
+            lblScore5.Name = "lblScore5";
+            lblScore5.Size = new Size(118, 55);
+            lblScore5.TabIndex = 1;
+            lblScore5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblNewHS
+            // 
+            lblNewHS.Location = new Point(62, 3);
+            lblNewHS.Name = "lblNewHS";
+            lblNewHS.Size = new Size(248, 139);
+            lblNewHS.TabIndex = 1;
+            lblNewHS.Text = "New high score!";
+            lblNewHS.TextAlign = ContentAlignment.MiddleCenter;
+            lblNewHS.Visible = false;
+            // 
+            // txtInput
+            // 
+            txtInput.Location = new Point(62, 160);
+            txtInput.Name = "txtInput";
+            txtInput.Size = new Size(248, 23);
+            txtInput.TabIndex = 2;
+            txtInput.Visible = false;
+            // 
+            // btnSubmit
+            // 
+            btnSubmit.Location = new Point(232, 189);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(78, 21);
+            btnSubmit.TabIndex = 3;
+            btnSubmit.Text = "Submit name";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Visible = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // FormBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 358);
-            this.Controls.Add(this.tblScores);
-            this.Name = "FormBoard";
-            this.Text = "LeaderBoard";
-            this.Load += new System.EventHandler(this.FormBoard_Load);
-            this.tblScores.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(392, 358);
+            Controls.Add(btnSubmit);
+            Controls.Add(txtInput);
+            Controls.Add(lblNewHS);
+            Controls.Add(tblScores);
+            Name = "FormBoard";
+            Text = "LeaderBoard";
+            Load += FormBoard_Load;
+            tblScores.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -206,5 +243,8 @@
         private Label lblScore4;
         private Label lblName5;
         private Label lblScore5;
+        private Label lblNewHS;
+        private TextBox txtInput;
+        private Button btnSubmit;
     }
 }
