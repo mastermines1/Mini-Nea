@@ -63,13 +63,13 @@ namespace NEA_mini
                 if (level < 2)
                 {
                     picHudson.Top = 420;
-                    FormQuiz frmQuiz = new FormQuiz(level, 0, livesRemaining, score);
+                    FormQuiz frmQuiz = new FormQuiz(level, 0, livesRemaining, score-scoreLost);
                     frmQuiz.Show(); //go to questions
                     this.Dispose();
                 }
                 else
                 {
-                    FormBoard frmbrd = new FormBoard(score);
+                    FormBoard frmbrd = new FormBoard(score-scoreLost);
                     this.Dispose();
                     frmbrd.Show();
                     //victory
@@ -98,11 +98,11 @@ namespace NEA_mini
         private void tmrEnemySpawnFast_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnFast.Interval = 1000;
-            car Car1 = new car(false, true, this);
+            car Car1 = new car(false, true, this,level);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
             tmrEnemySpawnFast.Interval = 1000;
-            car Car2 = new car(true, true, this);
+            car Car2 = new car(true, true, this, level);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
 
@@ -113,14 +113,14 @@ namespace NEA_mini
 
             if (livesRemaining <= 0)
             {
-                FormBoard frmbrd = new FormBoard(0);
+                FormBoard frmbrd = new FormBoard(score-scoreLost);
                 this.Dispose();
                 frmbrd.Show();
                 //gameover
             }
             else
             {
-                Form1 frm = new Form1(level, livesRemaining, score);
+                Form1 frm = new Form1(level, livesRemaining, score-scoreLost);
                 this.Dispose();
                 frm.Show();
             }
@@ -131,11 +131,11 @@ namespace NEA_mini
         private void tmrEnemySpawnSlow_Tick(object sender, EventArgs e)
         {
             tmrEnemySpawnSlow.Interval = 3000;
-            car Car1 = new car(false, false, this);
+            car Car1 = new car(false, false, this, level);
             this.Controls.Add(Car1.picCar);
             Car1.picCar.BringToFront();
             tmrEnemySpawnSlow.Interval = 3000;
-            car Car2 = new car(true, false, this);
+            car Car2 = new car(true, false, this, level);
             this.Controls.Add(Car2.picCar);
             Car2.picCar.BringToFront();
         }
@@ -151,15 +151,15 @@ namespace NEA_mini
 
         private void tmrScore_Tick(object sender, EventArgs e)
         {
-            score -= 10;
-            if (score != 0)
+            scoreLost += 10;
+            if (score-scoreLost != 0)
             {
-                lblScore.Text = "Score: " + score;
+                lblScore.Text = "Score: " + (score-scoreLost);
             }
             else
             {
                 MessageBox.Show("You lost", "You loose");
-                FormBoard frm = new FormBoard(score);
+                FormBoard frm = new FormBoard(0);
                 this.Dispose();
                 frm.Show();
             }
@@ -174,7 +174,7 @@ public class car
     public bool fastLane { get; }
     private Form1 mainform;
 
-    public car(bool left, bool fast, Form1 amainform)
+    public car(bool left, bool fast, Form1 amainform,int level)
     {
         this.mainform = amainform;
         this.travelsLeft = left;
@@ -192,7 +192,7 @@ public class car
             };
             this.tmr = new System.Windows.Forms.Timer
             {
-                Interval = 10,
+                Interval = 10*(level+1),
                 Enabled = true,
             };
         }
@@ -209,7 +209,7 @@ public class car
             };
             this.tmr = new System.Windows.Forms.Timer
             {
-                Interval = 20,
+                Interval = 20 * (level + 1),
                 Enabled = true,
             };
         }
@@ -226,7 +226,7 @@ public class car
             };
             this.tmr = new System.Windows.Forms.Timer
             {
-                Interval = 10,
+                Interval = 10 * (level + 1),
                 Enabled = true,
             };
         }
@@ -243,7 +243,7 @@ public class car
             };
             this.tmr = new System.Windows.Forms.Timer
             {
-                Interval = 20,
+                Interval = 20 * (level + 1),
                 Enabled = true,
             };
         }

@@ -119,7 +119,7 @@ namespace NEA_mini
         }
         private void wrongAnswer_click(object sender, EventArgs e)
         {
-            FormBoard frm = new FormBoard(0);
+            FormBoard frm = new FormBoard(score);
             this.Dispose();
             frm.Show();
         }
