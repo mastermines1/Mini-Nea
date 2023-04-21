@@ -109,9 +109,9 @@ namespace NEA_mini
 
             if (livesRemaining <= 0)
             {
-                FormBoard frmbrd = new FormBoard(score);
+                FormBoard frmbrd = new FormBoard(score*level);
                 this.Dispose();
-                frmbrd.Show();
+                   frmbrd.Show();
                 //gameover
             }
             else
