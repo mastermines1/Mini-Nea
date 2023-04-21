@@ -3,7 +3,7 @@
     partial class Form1
     {
 
-        int level, livesRemaining, score;
+        int level, livesRemaining, score,scoreLost;
         /// <summary>
         ///  Required designer variable.
         /// </summary>
